@@ -19,6 +19,7 @@
             background-color: sandybrown;
             position: fixed;
             bottom: 1px;
+            height: 3%;
         }
 
     </style>
@@ -31,50 +32,61 @@
 </header>
 <div class="container" id="formulario">
     <div class="row">
-        <div class="col-12">
-            <p>Bienvenido al impresor de cartas de Hearthstone, elige tu carta, el tamaño de esta y obten tu propia copia.</p>
+        <div class="col-12 text-center">
+            <p>Bienvenido al impresor de cartas de Hearthstone, elige tu carta, el tamaño de esta y obten tu propia
+                copia.</p>
         </div>
     </div>
-    <div class="row">
-        <div class="col-3 form" id="userInfo">
-            <label>Nombre </label>
-            <input type="text">
-            <label>Apellidos</label>
-            <input type="text">
-            <label>Direccion</label>
-            <input type="text">
-            <label>Fecha de entrega</label>
-            <input type="text" id="date">
-        </div>
-        <div class="col-3 cards">
-            <label>Busca una carta</label>
-            <input id="autocard" type="text">
-        </div>
-        <div class="col-3 animated bounceInRight">
-            <label>Selecciona el tamaño</label>
-            <select class="form-control input text-grey" id='tamaños'>
-                <option>841×1189 mm</option>
-                <option>594×841 mm</option>
-                <option>420×594 mm</option>
-                <option>297×420 mm</option>
-                <option>210×297 mm</option>
-                <option>148×210 mm</option>
-                <option>105×148 mm</option>
-                <option>74×105 mm</option>
-                <option>52×74 mm</option>
-            </select>
-        </div>
-        <div class ="col-3">
-            <button id="enviar" class="btn btn-primary btn-lg">Enviar</button>
-        </div>
+    <div class="row justify-content-center" >
+        <form>
+            <div class="col-md-6 col-xs-12 form-group ">
+                <label>Nombre </label>
+                <input type="text" placeholder="Introduce tu nombre">
+            </div>
+            <div class="col-md-6 col-xs-12 form-group ">
+                <label>Apellidos</label>
+                <input type="text" placeholder="Introduce tus apellidos">
+            </div>
+            <div class="col-md-6 col-xs-12 form-group ">
+                <label>Direccion</label>
+                <input type="text" placeholder="Introduce tu direccion">
+            </div>
+            <div class="col-md-6 col-xs-12 form-group ">
+                <label>Fecha de entrega</label>
+
+                <input type="text" id="date" placeholder="Selecciona fecha">
+            </div>
+            <div class="col-md-6 col-xs-12 form-group ">
+                <label>Busca una carta</label>
+                <input id="autocard" type="text" placeholder="Introduce 3 letras...">
+            </div>
+            <div class="col-md-6 col-xs-12 form-group">
+                <label>Selecciona el tamaño</label>
+                <select class="form-control input text-grey">
+                    <option>841×1189 mm</option>
+                    <option>594×841 mm</option>
+                    <option>420×594 mm</option>
+                    <option>297×420 mm</option>
+                    <option>210×297 mm</option>
+                    <option>148×210 mm</option>
+                    <option>105×148 mm</option>
+                    <option>74×105 mm</option>
+                    <option>52×74 mm</option>
+                </select>
+            </div>
+
+            <div class="col-md-6 col-xs-12 form-group ">
+                <button id="enviar" class="btn btn-primary btn-lg mb-3">Enviar</button>
+            </div>
+        </form>
     </div>
 </div>
-<div id="dialog" title="Recibido">
-    <p>¡Encargo recibido!.</p>
+<div id="dialog" class="pred" title="Recibido">
+    <p>¡Encargo recibido!</p>
 </div>
 <footer>
-    <div class="container-fluid" id="footer">
-        <p style="text-align: center"> Jesús García Leyva 2DAW</p>
+    <div class="container-fluid text-center" id="footer">
+        <p> Jesús García Leyva 2DAW</p>
     </div>
 </footer>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js ' integrity='sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ ' crossorigin='anonymous '></script>
@@ -106,7 +118,7 @@
 
                 $( "#autocard" ).autocomplete({
                     source: items,
-                    minLength: 5
+                    minLength: 3
                 });
             });
         }
@@ -118,7 +130,8 @@
             height: 200,
             show: {
                 effect: "slide",
-                duration: 500
+                duration: 500,
+
             },
             hide: {
                 effect: "explode",
